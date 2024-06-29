@@ -1,5 +1,5 @@
-- name: configure db server
-  hosts: db
+- name: "configure {{ component }} server"
+  hosts: "{{ component }}"
   become: yes
   roles:
-  - db
+  - "{{ component }}"
