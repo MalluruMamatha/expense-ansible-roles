@@ -2,21 +2,24 @@
   ansible.builtin.dnf:
     name: nginx
     state: latest
+
 - name: enable and start nginx
   ansible.builtin.service:
     name: nginx
-    state: started
+    state: latest
     enabled: yes
-    
-- name: remove default content in website
-  ansible.builtin.file:
-    path: /usr/share/nginx/html/
-    state: directory
+
 
 - name: run common-requisites
   ansible.builtin.import_role:
     name: common
     tasks_from: common-requisites
+    
+# - name: remove default content in website
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html/
+#     state: directory
+
 
 # - name: create html directory
 #   ansible.builtin.file:
