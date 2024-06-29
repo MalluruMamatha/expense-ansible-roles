@@ -3,11 +3,7 @@
     name: nginx
     state: latest
 
-- name: start and enable nginx
-  ansible.builtin.service:
-    name: nginx
-    state: started
-    enabled: yes
+
 
 - name: run common-requisites
   ansible.builtin.import_role:
@@ -35,8 +31,15 @@
   ansible.builtin.template:
     src: expense.conf.j2
     dest: /etc/nginx/default.d/expense.conf
-  notify:
-  - restart nginx
+
+- name: start and enable nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: yes
+
+  # notify:
+  # - restart nginx
 
 # - name: restart nginx
 #   ansible.builtin.service:
