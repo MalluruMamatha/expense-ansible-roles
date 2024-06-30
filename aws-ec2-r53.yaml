@@ -27,7 +27,7 @@
 
   - name: creating r53 records
     amazon.aws.route53:
-      zone: {{ zone }}
+      zone: "{{ zone }}"
       record: "{{ item }}.{{ zone }}"
       type: A
       ttl: 1
