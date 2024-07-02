@@ -2,9 +2,7 @@
   ansible.builtin.dnf:
     name: nginx
     state: latest
-
-
-
+    
 - name: run common-requisites
   ansible.builtin.import_role:
     name: common
